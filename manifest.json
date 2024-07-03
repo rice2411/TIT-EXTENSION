@@ -1,52 +1,43 @@
 {
-    "update_url": "https://clients2.google.com/service/update2/crx",
-    
-      "name": "TIT - That's it Tech",
-      "manifest_version": 3,
-      "version": "1.0.0",
-      "description": "Tiện ích này giúp cuộc sống sinh viên của các bạn dễ dàng hơn, tiện ích được sử dụng cho trang tín chỉ của trường Đại học Khoa Học Huế và Đại học Ngoại Ngữ Huế",
-      "icons": {
-        "128": "images/TIT-LOGO.png",
-        "64": "images/TIT-LOGO.png",
-        "32": "images/TIT-LOGO.png"
-      },
-      "minimum_chrome_version": "92",
-      "action": {
-        "default_title": "Ums - Husc Analyst",
-        "default_icon": "images/TIT-LOGO.png",
-        "default_popup": "index.html"
-      },
-      "content_scripts": [
-        {
-          "matches": [
-            "http://student.husc.edu.vn/*",
-            "https://student.husc.edu.vn/*",
-            "https://student.huflis.edu.vn/*"
-          ],
-          "css": [
-            "css/index.css"
-   
-          ],  
-          "js": [
-            "scripts/index.js"
-          ]
-        }
+  "update_url": "https://clients2.google.com/service/update2/crx",
+
+  "name": "TIT - That's it Tech",
+  "manifest_version": 3,
+  "version": "1.0.0",
+  "description": "Tiện ích này giúp cuộc sống sinh viên của các bạn dễ dàng hơn, tiện ích được sử dụng cho trang tín chỉ của trường Đại học Khoa Học Huế và Đại học Ngoại Ngữ Huế",
+  "icons": {
+    "128": "images/TIT-LOGO.png",
+    "64": "images/TIT-LOGO.png",
+    "32": "images/TIT-LOGO.png"
+  },
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+  "minimum_chrome_version": "92",
+  "action": {
+    "default_title": "Ums - Husc Analyst",
+    "default_icon": "images/TIT-LOGO.png",
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://student.husc.edu.vn/*",
+        "https://student.husc.edu.vn/*",
+        "https://student.huflis.edu.vn/*"
       ],
-      "web_accessible_resources": [
-        {
-          "resources": [
-          
-          ],
-          "matches": [
-            "https://*/*"
-          ]
-        }
-      ],
-      "permissions": [
-        "storage",
-        "notifications"
-      ],
-      "content_security_policy": {
-        "extension_pages": "default-src 'self'; object-src 'self'; connect-src 'self' https://www.google-analytics.com/;"
-      }
+      "css": ["css/index.css"],
+      "js": ["scripts/index.js", "scripts/noti.js"]
     }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [],
+      "matches": ["https://*/*"]
+    }
+  ],
+  "permissions": ["storage", "notifications"],
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; object-src 'self'; connect-src 'self' https://www.google-analytics.com/;"
+  }
+}

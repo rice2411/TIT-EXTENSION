@@ -10,5 +10,6 @@ function displayCourseWarningComponent() {
 
 window.addEventListener('load', function () {
     displayCourseWarningComponent()
-
 });
+
+
