@@ -1,7 +1,7 @@
 
 
 body{
-  min-width: 500px;
+  min-width: max-content;
   background-color: #1B2222;
   font-family: Tahoma, sans-serif;
   font-size: 12px;
@@ -45,6 +45,6 @@ body{
   justify-content: center;
   color: #009499 
 }
-.container .footer .link {
+.link {
   color: #F2A230
 }
