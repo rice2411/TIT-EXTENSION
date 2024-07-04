@@ -45,7 +45,7 @@ const handleCheckSameListMess = async (isNew = false) => {
 
 }
 
-const handleAlertNewMessage = () => {
+const handleAlertNewMessage = async () => {
     setTimeout(async () => {
         const noti = document.getElementsByClassName('notification-message')[0]
         const isFirstTimeCache = sessionStorage.getItem('isFirstTime')
@@ -58,7 +58,8 @@ const handleAlertNewMessage = () => {
                 const listMess = await handleCheckSameListMess(true);
                 canNoti = listMess.added.length ? true : false;
             }
-            if (canNoti) {
+            const { isCanNoti } = await chrome.storage.sync.get("isCanNoti");
+            if (canNoti && isCanNoti) {
                 const message = `Bạn có ${count} tin nhắn từ trang tín chỉ`
                 chrome.runtime.sendMessage('', {
                     type: NOTIFICAITON_TYPE,
@@ -74,7 +75,7 @@ const handleAlertNewMessage = () => {
 
 
 
-window.addEventListener('load', async function () {
+window.addEventListener('load', async () => {
     const isFirstTimeCache = sessionStorage.getItem('isFirstTime')
     const isFirstTime = isFirstTimeCache === null ? 1 : +isFirstTimeCache
     if (isFirstTime) {
