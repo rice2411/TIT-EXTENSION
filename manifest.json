@@ -27,7 +27,7 @@
         "https://student.huflis.edu.vn/*"
       ],
       "css": ["css/index.css"],
-      "js": ["scripts/index.js", "scripts/noti.js"]
+      "js": ["scripts/welcome.js", "scripts/noti.js"]
     }
   ],
   "web_accessible_resources": [
