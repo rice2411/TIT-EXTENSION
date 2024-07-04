@@ -1,0 +1,11 @@
+primary: #009499
+secondary: #F2A230
+gm1: #D8EFF0
+gy1: #1B2222
+gy2: #576D74
+gy3: #859FA6
+gy4: #B7C9CE
+gy5: #E5EDEF
+gy6: #F2F7F7
+gy7: #FFFFFF
+danger: #FD5C5C
