@@ -11,7 +11,6 @@ const scoreAnalysis = () => {
 
   for (let i = 0; i < 6; i++) {
     const percentageText = percentageElements[i]?.textContent;
-    console.log(percentageText);
     const score = parseFloat(scoreElements[i]?.textContent) || 0;
     const percentage = parseInt(percentageText?.split("(")[1]) || 0;
     totalPercent += percentage;
