@@ -4,3 +4,6 @@
 .cursor-pointer {
     cursor: pointer;
 }
+.bg-linear {
+	background: linear-gradient(to right, #2c699e, #9ac6df);
+}
