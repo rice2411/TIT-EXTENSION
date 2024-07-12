@@ -1,5 +1,3 @@
-const NOTIFICAITON_TYPE = `notification`
-const SITE_URL = `https://student.husc.edu.vn/`
 const generateTemplateNotification = (message, icon = '/images/TIT-LOGO.png') => {
     return {
         title: `Thông báo mới từ TIT EXTENSION `,
