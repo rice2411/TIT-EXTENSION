@@ -26,13 +26,18 @@
         "https://student.husc.edu.vn/*",
         "https://student.huflis.edu.vn/*"
       ],
-      "css": ["css/index.css"],
-      "js": ["scripts/welcome.js", "scripts/noti.js"]
+      "css": ["css/tit.css"],
+      "js": [
+        "scripts/constant.js",
+        "scripts/welcome.js",
+        "scripts/noti.js",
+        "scripts/historyOfStudying.js"
+      ]
     }
   ],
   "web_accessible_resources": [
     {
-      "resources": [],
+      "resources": ["modal_course.html"],
       "matches": ["https://*/*"]
     }
   ],
