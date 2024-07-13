@@ -1,6 +1,5 @@
 {
   "update_url": "https://clients2.google.com/service/update2/crx",
-
   "name": "TIT - That's it Tech",
   "manifest_version": 3,
   "version": "1.0.0",
@@ -26,13 +25,23 @@
         "https://student.husc.edu.vn/*",
         "https://student.huflis.edu.vn/*"
       ],
-      "css": ["css/index.css"],
-      "js": ["scripts/welcome.js", "scripts/noti.js"]
+      "css": ["css/tit.css", "css/index.css"],
+      "js": [
+        "scripts/lib/xlsx.full.min.js",
+        "scripts/constants/route.js",
+        "scripts/utils/route.js",
+        "scripts/utils/DOM.js",
+        "scripts/utils/string.js",
+        "scripts/welcome.js",
+        "scripts/noti.js",
+        "scripts/historyOfStudying.js",
+        "scripts/studyResult.js"
+      ]
     }
   ],
   "web_accessible_resources": [
     {
-      "resources": [],
+      "resources": ["modal_course.html"],
       "matches": ["https://*/*"]
     }
   ],
