@@ -6,10 +6,6 @@
                     <ul class="nav nav-tabs nav-fill" role="tablist">
                         <li class="nav-item active"><a href="#dashboard" data-toggle="tab" class="nav-link active show"
                                 role="tab">Tổng quan</a></li>
-                        <li class="nav-item"><a href="#semester" data-toggle="tab" class="nav-link" role="tab">Điểm theo
-                                học kỳ</a></li>
-                        <li class="nav-item"><a href="#year" data-toggle="tab" class="nav-link" role="tab">Điểm theo
-                                năm</a></li>
                     </ul>
                     <div class="tab-content my-5">
                         <div id="dashboard" class="fade tab-pane active in show" role="tabpanel">
@@ -37,16 +33,16 @@
                                         </div>
                                         <div class="info-item my-4">
                                             <span>Tổng số TC đã tích lũy:</span>
-                                            <span id="total-certi">-</span>
+                                            <b><span id="total-credits">-</span></b>
                                         </div>
                                         <div class="row">
                                             <div class="info-item col-sm-6">
-                                                <span>TB điểm hệ 4:</span>
-                                                <span id="avg-4"">-</span>
-                                      </div>
-                                      <div class=" info-item col-sm-6">
-                                                    <span>TB điểm hệ 10:</span>
-                                                    <span id="avg-10">-</span>
+                                                <span>Điểm trung bình tích lũy hệ 4:</span>
+                                                <b> <span id="grade4AVG">-</span></b>
+                                            </div>
+                                            <div class=" info-item col-sm-6">
+                                                <span>Điểm trung bình tích lũy 10:</span>
+                                                <b> <span id="grade10AVG">-</span></b>
                                             </div>
                                         </div>
                                         <div class="info-item my-4">
@@ -72,7 +68,7 @@
                                         </div>
                                         <div class="col-20p">
                                             <div class="mark-rank">F</div>
-                                            <div id="quantity-other" class="mark-count">0</div>
+                                            <div id="quantity-f" class="mark-count">0</div>
                                         </div>
                                     </div>
                                 </div>
@@ -83,20 +79,13 @@
                                         </div>
 
                                         <div class="info-item">
-                                            <div id="mark">
-                                                <canvas id="chart_mark" width="100" height="100"></canvas>
-                                            </div>
+                                            <canvas id="statistics-chart">
+                                            </canvas>
                                         </div>
 
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div id="semester" class="fade tab-pane my-5" role="tabpanel">
-                            <canvas id="chart_semester" width="400" height="200"></canvas>
-                        </div>
-                        <div id="year" class="fade tab-pane my-5" role="tabpanel">
-                            <canvas id="chart_year" width="400" height="200"></canvas>
                         </div>
                     </div>
                 </div>

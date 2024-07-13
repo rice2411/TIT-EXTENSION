@@ -1,9 +1,6 @@
-.tit-mr-7px {
-    margin-left: 7px;
+.tit-ml-2 {
+  margin-left: 8px;
 }
 .cursor-pointer {
-    cursor: pointer;
-}
-.bg-linear {
-	background: linear-gradient(to right, #2c699e, #9ac6df);
+  cursor: pointer;
 }
