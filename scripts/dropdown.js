@@ -1,5 +1,7 @@
 const initTITDropDown = () => {
-    const mainMenu = document.getElementById(`menuMain`).getElementsByClassName('navbar-nav')[0]
+    const mainMenu = document
+        .getElementById(`menuMain`)
+        .getElementsByClassName("navbar-nav")[0];
     const titDropdown = `<li class="dropdown bg-linear">
                             <a href="javascript:;" class="dropdown-toggle " data-toggle="dropdown">TIT EXTENSION <b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -10,11 +12,16 @@ const initTITDropDown = () => {
                                 <!-- <li><a href="~/Support/Scheduling">Xử lý đăng ký học tập</a></li> -->
                                 <li><a href="/Studying/ScheduleOfExam">Lịch thi kết thúc học phần</a></li>
                             </ul>
-                        </li>`
-    mainMenu.innerHTML += titDropdown
-}
-
+                        </li>`;
+    mainMenu.innerHTML += titDropdown;
+};
 
 window.addEventListener("load", async () => {
-    initTITDropDown()
+    if (
+        !location.href.includes(
+            getFullUrl(SITE_URL.base.husc, SITE_URL.courseRegistration)
+        )
+    ) {
+        initTITDropDown();
+    }
 });

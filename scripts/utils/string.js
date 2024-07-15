@@ -11,3 +11,18 @@ function convertPascalCase(str) {
 
   return result.replace(/\s+/g, "");
 }
+
+//Hàm lấy thời khóa biểu môn học
+const getTimeOfCourse = (str) => {
+  let mainPart = str.split('[')[0].trim();
+  let bracketContent = str.match(/\[(.*?)\]/);
+
+  if (bracketContent) {
+    let items = bracketContent[1].split(',').map(item => item.trim());
+    items.pop();
+    let newBracketContent = items.join(', ');
+    return `${mainPart} / ${newBracketContent}`.trim();
+  }
+
+  return mainPart;
+}

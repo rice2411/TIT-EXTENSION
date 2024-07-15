@@ -80,7 +80,7 @@ const traningAssessment = async () => {
   const rows = [...doc.querySelector("tbody").children];
   const total = Math.round(
     rows.reduce((sum, row) => sum + parseInt(row.children[3].textContent), 0) /
-      rows.length
+    rows.length
   );
 
   if (total >= 90) return "Xuất Sắc";
@@ -132,7 +132,10 @@ const renderModalStatistics = async () => {
 };
 
 window.addEventListener("load", async () => {
-  await renderModalStatistics();
-  getInfoStudent();
-  statisticsScore();
+  if (!location.href.includes(getFullUrl(SITE_URL.base.husc, SITE_URL.courses))) {
+    await renderModalStatistics();
+    getInfoStudent();
+    statisticsScore();
+  }
+
 });
