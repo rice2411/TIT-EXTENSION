@@ -1,4 +1,3 @@
-const NOTIFICAITON_TYPE = `notification`;
 const SITE_URL = {
   base: {
     husc: `https://student.husc.edu.vn`,

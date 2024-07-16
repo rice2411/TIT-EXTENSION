@@ -1,0 +1,9 @@
+.tit-flex {
+  display: flex;
+}
+.tit-items-center {
+  align-items: center;
+}
+.tit-justify-end {
+  justify-content: flex-end;
+}

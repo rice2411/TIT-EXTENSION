@@ -8,6 +8,8 @@ const analysisCourse = (listTime) => {
                 const isDuplicate = checkDuplicateTime(listTime, timeOfCourse, row);
                 if (isDuplicate) {
                     row.children[6].addEventListener("click", () => {
+                        const statisticsModal = document.getElementById('modalStatisics')
+                        if (statisticsModal) statisticsModal.remove()
                         const modal = document.querySelectorAll(".modal-content")[0];
                         const alert = `<div class="alert alert-danger" data-toggle="tooltip" title="Hooray!"> <b> Cảnh báo !</b> Học phần này đang bị trùng lịch với học phần bạn đã đăng kí hãy xác nhận nếu bạn vẫn muốn đăng kí </div>
                           <label class="tit-flex tit-items-center tit-justify-end" for="agree">
@@ -42,7 +44,7 @@ const checkDuplicateTime = (listTime, time, node) => {
                 parseInt(hoursItem[0]) <= parseInt(hours[1])
             ) {
                 node.classList.add("tit-text-danger");
-                node.classList.add("cursor-pointer");
+                node.classList.add("tit-cursor-pointer");
                 node.setAttribute("data-target", "#modalCourseDetail");
                 node.setAttribute("title", "Học phần này đang bị trùng lịch");
                 node.children[0].querySelectorAll(
@@ -57,9 +59,7 @@ const checkDuplicateTime = (listTime, time, node) => {
 
 const getDataRegisterdCourses = async () => {
     const url = getFullUrl(SITE_URL.base.husc, SITE_URL.registeredCourse);
-    const htmlRaw = await getHtmlRawOfPage(url);
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(htmlRaw, "text/html");
+    const doc = await getPageDOM(url)
     const courses = [...doc.querySelectorAll("tbody")[0].children];
     return courses
         .filter((course) => course.children.length !== 1)

@@ -1,3 +1,5 @@
+const NOTIFICAITON_TYPE = `notification`
+
 const generateTemplateNotification = (message, icon = '/images/TIT-LOGO.png') => {
     return {
         title: `Thông báo mới từ TIT EXTENSION `,
