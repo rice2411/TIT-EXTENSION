@@ -38,7 +38,8 @@
         "scripts/historyOfStudying.js",
         "scripts/studyResult.js",
         "scripts/dropdown.js",
-        "scripts/statistics.js"
+        "scripts/statistics.js",
+        "scripts/registerCredit.js"
       ]
     }
   ],

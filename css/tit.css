@@ -1,6 +1,33 @@
 .tit-ml-2 {
-  margin-left: 8px;
+  margin-left: 8px !important;
+}
+.tit-pl-2 {
+  padding-left: 8px !important;
+}
+.tit-mt-0 {
+  margin-top: 0px !important;
+}
+.tit-mx-0 {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.tit-my-0 {
+  margin-right: 0px !important;
+  margin-left: 0px !important;
 }
 .cursor-pointer {
   cursor: pointer;
+}
+
+.tit-text-danger {
+  color: red !important;
+}
+.tit-flex {
+  display: flex;
+}
+.tit-items-center {
+  align-items: center;
+}
+.tit-justify-end {
+  justify-content: flex-end;
 }

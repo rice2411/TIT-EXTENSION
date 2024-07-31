@@ -18,8 +18,11 @@ const gettPermissionNotification = async () => {
 }
 
 window.addEventListener('load', () => {
-    displayCourseWarningComponent()
-    gettPermissionNotification()
+    if (!location.href.includes(getFullUrl(SITE_URL.base.husc, SITE_URL.courseRegistration))) {
+        displayCourseWarningComponent()
+        gettPermissionNotification()
+
+    }
 });
 
 

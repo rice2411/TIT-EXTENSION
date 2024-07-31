@@ -74,12 +74,15 @@ const handleAlertNewMessage = async () => {
 
 
 window.addEventListener('load', async () => {
-    const isFirstTimeCache = sessionStorage.getItem('isFirstTime')
-    const isFirstTime = isFirstTimeCache === null ? 1 : +isFirstTimeCache
-    if (isFirstTime) {
-        await handleCheckSameListMess()
+    if (!location.href.includes(getFullUrl(SITE_URL.base.husc, SITE_URL.courseRegistration))) {
+        const isFirstTimeCache = sessionStorage.getItem('isFirstTime')
+        const isFirstTime = isFirstTimeCache === null ? 1 : +isFirstTimeCache
+        if (isFirstTime) {
+            await handleCheckSameListMess()
+        }
+        handleAlertNewMessage();
     }
-    handleAlertNewMessage();
+
 });
 
 
