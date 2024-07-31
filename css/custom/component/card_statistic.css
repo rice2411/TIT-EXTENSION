@@ -1,0 +1,67 @@
+.tit-card-statistic {
+  background: #ffffff !important;
+  border-radius: 5px !important;
+  height: 300px !important;
+  width: 650px !important;
+}
+
+.tit-card-statistic p {
+  margin: 0;
+}
+
+.tit-card-statistic .container {
+  padding: 10px !important;
+  width: 95% !important;
+}
+
+.tit-card-statistic .title {
+  font-size: 20px !important;
+  font-weight: bold !important;
+}
+
+.tit-card-statistic .container .header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 95% !important;
+  padding: 20px !important;
+}
+
+.tit-card-statistic .header {
+  color: #6c757d !important;
+  font-weight: bold !important;
+  font-size: 20px !important;
+}
+
+.tit-card-statistic .header .credit {
+  color: #198754 !important;
+  font-weight: bold !important;
+  font-size: 24px !important;
+}
+.tit-card-statistic .header .total-credit {
+  font-weight: bold !important;
+  font-size: 24px !important;
+}
+
+.tit-card-statistic .container .hr {
+  background: #eceeef;
+  height: 1px;
+}
+
+.tit-card-statistic .container .item {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 95% !important;
+  padding: 7px 20px !important;
+}
+
+.tit-card-statistic .container .item .text {
+  color: #6c757d !important;
+  font-size: 14px !important;
+  display: flex !important;
+}
+
+#need-credits {
+  color: red !important;
+}

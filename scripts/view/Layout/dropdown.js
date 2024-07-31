@@ -26,6 +26,62 @@ const getInfoStudent = () => {
     document.getElementById("student-semester").innerHTML = anotherInfo[3];
 };
 
+const getCreditsInfo = async (studyResultData) => {
+    const url = getFullUrl(SITE_URL.base.husc, SITE_URL.trainningProgram)
+    const doc = await getPageDOM(url)
+    const trannignProgramInfo = doc.querySelectorAll('.container-fluid .form-horizontal')[0]
+    const totalCredits = trannignProgramInfo.children[1].querySelectorAll('.col-xs-2')[0].textContent
+    const minEarnCredits = trannignProgramInfo.children[2].querySelectorAll('.form-control-static')[0].textContent
+    const earnedCredits = document.getElementById("earned-creadits").textContent
+    const tableRows = [...doc.querySelectorAll('tbody')[0].querySelectorAll('tr')]
+    const trainingProgramData = []
+    tableRows.filter((row) => row.children.length === 1).forEach((row) => {
+        const object = {
+            title: row.querySelectorAll('strong')[0].textContent,
+            data: [],
+            required: parseInt(row.querySelectorAll('span')[1].textContent.split(":")[1].trim()),
+            option: 0,
+            total: parseInt(row.querySelectorAll('span')[0].textContent.split(":")[1].trim().slice(0, -1))
+        }
+        object.option = object.total - object.required
+        trainingProgramData.push(object)
+    })
+    let index = 0;
+    tableRows.shift();
+    tableRows.forEach((row) => {
+        if (row.children.length !== 1) {
+            const object = trainingProgramData[index]
+            const item = {
+                id: row.children[1].textContent.trim(),
+                name: row.children[2].textContent.trim(),
+                credits: parseInt(row.children[3].textContent.trim()),
+                required: !!row.children[4].textContent.trim()
+            }
+            object.data.push(item)
+        } else {
+            index++
+        }
+    })
+    console.log(trainingProgramData);
+    console.log(studyResultData);
+    const template = (item) => {
+        return `<div class="item">
+                    <div class="text">
+                        <span class="glyphicon glyphicon-list-alt"></span>
+                        <p class="tit-ml-2">Điểm A</p>
+                    </div>
+                    <p class="value"><b>21</b> <span class="glyphicon glyphicon-question-sign"></span>
+                    </p>
+                </div>`
+    }
+    let result = ''
+    trainingProgramData.forEach((item) => {
+        result += template(item)
+    })
+    document.getElementById('total-credits').innerHTML = "/" + minEarnCredits
+    document.getElementById('need-credits').innerHTML = parseInt(minEarnCredits) - parseInt(earnedCredits)
+}
+
 const statisticsScore = async () => {
     const url = getFullUrl(SITE_URL.base.husc, SITE_URL.studyResult)
     const doc = await getPageDOM(url)
@@ -43,9 +99,13 @@ const statisticsScore = async () => {
         D: 0,
         F: 0,
     };
+    const studyResultData = []
     tableRows
         .filter((row) => row.children.length === 8)
-        .map((row) => {
+        .forEach((row) => {
+            studyResultData.push({
+                id: row.children[0].textContent.trim(),
+            })
             totalScoreGrade10 +=
                 parseFloat(row.children[5].textContent) *
                 parseInt(row.children[2].textContent);
@@ -68,7 +128,7 @@ const statisticsScore = async () => {
         }
     };
 
-    document.getElementById("total-credits").innerHTML = totalCreditsEarned;
+    document.getElementById("earned-creadits").innerHTML = totalCreditsEarned;
     document.getElementById("grade4AVG").innerHTML = grade4AVG;
     document.getElementById("grade10AVG").innerHTML = grade10AVG;
     document.getElementById("quantity-a").innerHTML = countGrade4AVG.A;
@@ -81,7 +141,8 @@ const statisticsScore = async () => {
     );
     document.getElementById("training-assessment").innerHTML =
         await traningAssessment();
-    initChart(countGrade4AVG);
+    // initChart(countGrade4AVG);
+    return studyResultData
 };
 
 const traningAssessment = async () => {
@@ -138,12 +199,13 @@ const initChart = (dataInput) => {
 const renderModalStatistics = async () => {
     try {
         const response = await fetch(
-            chrome.runtime.getURL("/page/modal/statistics.html")
+            chrome.runtime.getURL("/page/modal/new_modal.html")
         );
         const modalHtmlRaw = await response.text();
         document.getElementById('dialogMain').innerHTML += modalHtmlRaw;
         getInfoStudent();
-        statisticsScore();
+        const studyResultData = await statisticsScore();
+        getCreditsInfo(studyResultData);
     } catch (e) {
         console.log(e);
     }

@@ -28,6 +28,8 @@
       "css": [
         "css/lib/fa.css",
         "css/custom/component/modal_statistics.css",
+        "css/custom/component/card_info.css",
+        "css/custom/component/card_statistic.css",
         "css/custom/TIT/cursor.css",
         "css/custom/TIT/flexbox.css",
         "css/custom/TIT/margin.css",
@@ -51,7 +53,11 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["page/modal/course.html", "page/modal/statistics.html"],
+      "resources": [
+        "page/modal/course.html",
+        "page/modal/statistics.html",
+        "page/modal/new_modal.html"
+      ],
       "matches": ["https://*/*"]
     }
   ],

@@ -1,0 +1,77 @@
+.tit-card-info {
+  background: #fff !important;
+  width: 250px !important;
+  height: 70px !important;
+  padding: 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  margin: 0 10px;
+  border-radius: 5px;
+}
+
+.tit-card-info .body {
+  padding: 10px !important;
+  font-size: 12px !important;
+  display: flex !important;
+  width: 100% !important;
+}
+
+.tit-card-info .body .icon {
+  border-radius: 50% !important;
+  background: #f9f5fb !important;
+  height: 40px !important;
+  width: 40px !important;
+  padding: 14px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-right: 10px !important;
+}
+
+.tit-card-info .body .icon span {
+  color: #883cae !important;
+  margin: 0 !important;
+  font-size: 17px !important;
+}
+
+.tit-card-info .body .info .title {
+  font-weight: 700 !important;
+  padding-bottom: 3px !important;
+}
+
+.tit-card-info .body p {
+  margin: 0 !important;
+}
+
+.tit-card-info.medium {
+  width: 300px !important;
+  padding-left: 0px !important;
+}
+
+.tit-card-info.medium .body .info {
+  width: 100% !important;
+}
+
+.tit-card-info.medium .body .icon {
+  background: #883cae !important;
+  height: 35px !important;
+  width: 35px !important;
+}
+.tit-card-info.medium .body .icon span {
+  color: #ffffff !important;
+}
+
+.tit-card-info.medium .body .extra {
+  font-weight: normal !important;
+  width: 30% !important;
+}
+
+.tit-card-info.medium .body .extra .title {
+  font-weight: normal !important;
+  color: #6c757d !important;
+  font-size: 10px !important;
+}
+
+.tit-card-info.special {
+  border: 1px solid #883cae;
+}
