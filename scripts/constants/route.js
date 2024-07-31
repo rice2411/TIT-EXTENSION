@@ -6,4 +6,5 @@ const SITE_URL = {
   },
   historyStudying: `/Statistics/HistoryOfStudying`,
   studyResult: `/Statistics/StudyResult`,
+  conduct: `/Statistics/Conduct`,
 };
