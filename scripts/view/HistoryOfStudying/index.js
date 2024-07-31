@@ -43,15 +43,39 @@ const initIconOpenModal = () => {
         const link = links[i];
         const url = link.href;
         if (url.includes("/Course/Detail")) {
-            const span = document.createElement("span");
-            span.setAttribute("data-target", "#modalCourseDetail");
-            span.setAttribute("data-toggle", "modal");
-            const icon = document.createElement("a");
-            const iconClass =
-                "glyphicon glyphicon-exclamation-sign tit-mr-7px cursor-pointer course-detail-btn";
-            icon.setAttribute("data-toggle", "tooltip");
-            icon.setAttribute("title", "Chi tiết học phần");
-            addClassToNode(iconClass, icon);
+            const spanOption = {
+                type: 'span',
+                classList: '',
+                textContent: '',
+                attributes: [
+                    {
+                        data: `data-target`,
+                        value: `#modalCourseDetail`
+                    },
+                    {
+                        data: `data-toggle`,
+                        value: `modal`
+                    }
+                ]
+            }
+            const iconOption = {
+                type: 'a',
+                classList: 'glyphicon glyphicon-exclamation-sign tit-ml-2 tit-cursor-pointer course-detail-btn',
+                textContent: '',
+                attributes: [
+                    {
+                        data: `ddata-toggle`,
+                        value: `tooltip`
+                    },
+                    {
+                        data: `title`,
+                        value: `Chi tiết học phần`
+                    }
+                ]
+            }
+            const span = createDOMElement(spanOption)
+            const icon = createDOMElement(iconOption)
+
             span.appendChild(icon);
             link.after(span);
             icon.onclick = async () => {
@@ -82,7 +106,7 @@ const initIconOpenModal = () => {
 };
 
 const renderModalCourse = async () => {
-    const response = await fetch(chrome.runtime.getURL("/modal_course.html"));
+    const response = await fetch(chrome.runtime.getURL("/page/modal/course.html"));
     const modalHtmlRaw = await response.text();
     document.body.innerHTML += modalHtmlRaw;
 };
