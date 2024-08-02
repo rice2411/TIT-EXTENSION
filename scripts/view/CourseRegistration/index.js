@@ -58,7 +58,7 @@ const checkDuplicateTime = (listTime, time, node) => {
 };
 
 const getDataRegisterdCourses = async () => {
-    const url = getFullUrl(SITE_URL.base.husc, SITE_URL.registeredCourse);
+    const url = getFullUrl(location.origin, SITE_URL.registeredCourse);
     const doc = await getPageDOM(url)
     const courses = [...doc.querySelectorAll("tbody")[0].children];
     return courses
@@ -75,7 +75,7 @@ const getDataRegisterdCourses = async () => {
 
 window.addEventListener("load", async () => {
     if (
-        location.href.includes(getFullUrl(SITE_URL.base.husc, SITE_URL.courses))
+        location.href.includes(getFullUrl(location.origin, SITE_URL.courses))
     ) {
         const listTime = await getDataRegisterdCourses();
         await analysisCourse(listTime);

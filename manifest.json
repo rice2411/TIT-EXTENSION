@@ -10,7 +10,7 @@
     "32": "images/TIT-LOGO.png"
   },
   "background": {
-    "service_worker": "scripts/background.js"
+    "service_worker": "background/index.js"
   },
   "minimum_chrome_version": "92",
   "action": {
@@ -28,22 +28,28 @@
       "css": [
         "css/lib/fa.css",
         "css/custom/component/modal_statistics.css",
+        "css/custom/component/card_info.css",
+        "css/custom/component/card_statistic.css",
         "css/custom/TIT/cursor.css",
         "css/custom/TIT/flexbox.css",
         "css/custom/TIT/margin.css",
         "css/custom/TIT/padding.css",
-        "css/custom/TIT/text.css"
+        "css/custom/TIT/text.css",
+        "css/custom/TIT/height.css"
       ],
       "js": [
+        "background/notification.js",
+        "background/get_student_id.js",
         "scripts/lib/xlsx.full.min.js",
         "scripts/lib/chart.js",
         "scripts/constants/route.js",
         "scripts/utils/route.js",
         "scripts/utils/DOM.js",
         "scripts/utils/string.js",
-        "scripts/view/Layout/welcome.js",
-        "scripts/view/Layout/notification.js",
-        "scripts/view/Layout/dropdown.js",
+        "scripts/view/InjectedLayout/index.js",
+        "scripts/view/InjectedLayout/welcome.js",
+        "scripts/view/InjectedLayout/modal_statistic.js",
+        "scripts/view/InjectedLayout/export_excel.js",
         "scripts/view/CourseRegistration/index.js",
         "scripts/view/HistoryOfStudying/index.js"
       ]
@@ -51,7 +57,17 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["page/modal/course.html", "page/modal/statistics.html"],
+      "resources": [
+        "page/modal/course.html",
+        "page/modal/statistics.html",
+        "page/modal/new_modal.html",
+        "images/svg/id.svg",
+        "images/svg/student.svg",
+        "images/svg/major.svg",
+        "images/svg/semester.svg",
+        "images/svg/certificate.svg",
+        "images/svg/time-study.svg"
+      ],
       "matches": ["https://*/*"]
     }
   ],

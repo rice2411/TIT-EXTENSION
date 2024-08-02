@@ -8,5 +8,8 @@ const SITE_URL = {
   conduct: `/Statistics/Conduct`,
   registeredCourse: '/Studying/RegisteredCourses',
   courses: '/Studying/Courses',
-  courseRegistration: `/Studying/CourseRegistration`
+  courseRegistration: `/Studying/CourseRegistration`,
+  trainningProgram: `/TrainingProgram`,
+  logout: `/Account/Logout
+`
 };

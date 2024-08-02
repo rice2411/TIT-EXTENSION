@@ -113,7 +113,7 @@ const renderModalCourse = async () => {
 
 window.addEventListener("load", async () => {
     const isValid =
-        location.href === getFullUrl(SITE_URL.base.husc, SITE_URL.historyStudying);
+        location.href === getFullUrl(location.origin, SITE_URL.historyStudying);
     if (isValid) {
         await renderModalCourse();
         await initIconOpenModal();

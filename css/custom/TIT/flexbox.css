@@ -7,3 +7,6 @@
 .tit-justify-end {
   justify-content: flex-end;
 }
+.tit-justify-between {
+  justify-content: space-between;
+}
