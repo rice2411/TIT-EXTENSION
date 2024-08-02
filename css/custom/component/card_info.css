@@ -71,6 +71,11 @@
   font-size: 10px !important;
 }
 
+.tit-card-info.medium .body .extra .content {
+  font-weight: bold !important;
+  font-size: 14px !important;
+}
+
 .tit-card-info.special {
   border: 2px solid red;
 }

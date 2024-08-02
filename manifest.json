@@ -35,6 +35,7 @@
         "css/custom/TIT/margin.css",
         "css/custom/TIT/padding.css",
         "css/custom/TIT/text.css",
+        "css/custom/TIT/display.css",
         "css/custom/TIT/height.css"
       ],
       "js": [
@@ -66,6 +67,10 @@
         "images/svg/major.svg",
         "images/svg/semester.svg",
         "images/svg/certificate.svg",
+        "images/svg/score.svg",
+        "images/svg/grades.svg",
+        "images/svg/trainning.svg",
+        "images/svg/question.svg",
         "images/svg/time-study.svg"
       ],
       "matches": ["https://*/*"]
