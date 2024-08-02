@@ -1,20 +1,27 @@
 <div class="modal-dialog modal-lg" role="document" id="modalStatisics">
-    <div class="modal-content pt-5 ">
-        <div class=" modal-body">
+    <div class="modal-content pt-5">
+        <div class="modal-body">
             <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#1">Tín chỉ</a></li>
+                <li class="active"><a data-toggle="tab" href="#statisticCredit">Tín chỉ</a></li>
                 <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
                 <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
                 <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
+                <li class="tit-hidden"><a data-toggle=" tab" href="#detail">Chi tiết</a></li>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </ul>
 
-            <div class="tab-content tit-mt-5 ">
-                <div id="1" class="tab-pane fade in active">
+            <div class="tab-content tit-mt-5">
+                <div id="statisticCredit" class="tab-pane fade in active">
+                    <p class="alert alert-danger tit-mt-5 tit-cursor-pointer tit-hidden" id="alert-failed">
+                        Bạn bị hạ 1 bậc học lực vì học lại quá số tín chỉ quy định
+                    </p>
                     <div class="tit-flex tit-justify-between">
                         <div class="tit-card-info">
                             <div class="body">
                                 <div class="icon">
-                                    <img class="tit-h-4" id="icon-student-id" src="" alt="">
+                                    <img class="tit-h-4" id="icon-student-id" src="" alt="" />
                                 </div>
                                 <div class="info">
                                     <div class="title">Mã Sinh Viên</div>
@@ -25,7 +32,7 @@
                         <div class="tit-card-info">
                             <div class="body">
                                 <div class="icon">
-                                    <img class="tit-h-4" id="icon-student-name" src="" alt="">
+                                    <img class="tit-h-4" id="icon-student-name" src="" alt="" />
                                 </div>
                                 <div class="info">
                                     <div class="title">Họ và tên</div>
@@ -36,7 +43,7 @@
                         <div class="tit-card-info">
                             <div class="body">
                                 <div class="icon">
-                                    <img class="tit-h-4" id="icon-time-study" src="" alt="">
+                                    <img class="tit-h-4" id="icon-time-study" src="" alt="" />
                                 </div>
                                 <div class="info">
                                     <div class="title">Khóa</div>
@@ -47,29 +54,33 @@
                         <div class="tit-card-info">
                             <div class="body">
                                 <div class="icon">
-                                    <img class="tit-h-4" id="icon-major" src="" alt="">
+                                    <img class="tit-h-4" id="icon-major" src="" alt="" />
                                 </div>
                                 <div class="info">
                                     <div class="title">Ngành</div>
-                                    <div class="content" id="student-major">Kỹ Thuật Phần mềm</div>
+                                    <div class="content" id="student-major">
+                                        Kỹ Thuật Phần mềm
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="tit-card-info">
                             <div class="body">
                                 <div class="icon">
-                                    <img class="tit-h-4" id="icon-semester" src="" alt="">
+                                    <img class="tit-h-4" id="icon-semester" src="" alt="" />
                                 </div>
                                 <div class="info">
                                     <div class="title">Học Kỳ</div>
-                                    <div class="content" id="student-semester">Học kỳ: 2, năm học: 2022-2023</div>
+                                    <div class="content" id="student-semester">
+                                        Học kỳ: 2, năm học: 2022-2023
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="tit-card-info" id="special">
                             <div class="body">
                                 <div class="icon">
-                                    <img class="tit-h-4" id="icon-certificate" src="" alt="">
+                                    <img class="tit-h-4" id="icon-certificate" src="" alt="" />
                                 </div>
                                 <div class="info">
                                     <div class="title">Tình trạng</div>
@@ -79,10 +90,10 @@
                         </div>
                     </div>
                     <div class="tit-flex tit-justify-between tit-mt-5">
-                        <div class="tit-card-info medium ">
+                        <div class="tit-card-info medium">
                             <div class="body">
                                 <div class="icon">
-                                    <span class="glyphicon glyphicon-sound-5-1"></span>
+                                    <img class="tit-h-4" id="icon-4-AVG" src="" alt="" />
                                 </div>
                                 <div class="info">
                                     <p class="title">Điểm Trung Bình</p>
@@ -90,14 +101,14 @@
                                 </div>
                                 <div class="extra">
                                     <p class="title">Mới nhất</p>
-                                    <p class="content" id="grade4AVG">Giỏi</p>
+                                    <b class="content" id="score4AVG">Giỏi</b>
                                 </div>
                             </div>
                         </div>
-                        <div class="tit-card-info medium ">
+                        <div class="tit-card-info medium">
                             <div class="body">
                                 <div class="icon">
-                                    <span class="glyphicon glyphicon-sound-6-1"></span>
+                                    <img class="tit-h-4" id="icon-10-AVG" src="" alt="" />
                                 </div>
                                 <div class="info">
                                     <p class="title">Điểm Trung Bình</p>
@@ -105,14 +116,14 @@
                                 </div>
                                 <div class="extra">
                                     <p class="title">Mới nhất</p>
-                                    <p class="content" id="grade10AVG">Giỏi</p>
+                                    <b class="content" id="score10AVG">Giỏi</b>
                                 </div>
                             </div>
                         </div>
-                        <div class="tit-card-info medium ">
+                        <div class="tit-card-info medium">
                             <div class="body">
                                 <div class="icon">
-                                    <span class="glyphicon glyphicon-text-color"></span>
+                                    <img class="tit-h-4" id="icon-grades" src="" alt="" />
                                 </div>
                                 <div class="info">
                                     <p class="title">Xếp loại</p>
@@ -120,14 +131,14 @@
                                 </div>
                                 <div class="extra">
                                     <p class="title">Mới nhất</p>
-                                    <p class="content" id="academic-ability">Giỏi</p>
+                                    <b class="content" id="grades">Giỏi</b>
                                 </div>
                             </div>
                         </div>
-                        <div class="tit-card-info medium ">
+                        <div class="tit-card-info medium">
                             <div class="body">
                                 <div class="icon">
-                                    <span class="	glyphicon glyphicon-text-background"></span>
+                                    <img class="tit-h-4" id="icon-trainning" src="" alt="" />
                                 </div>
                                 <div class="info">
                                     <p class="title">Xếp loại</p>
@@ -135,7 +146,7 @@
                                 </div>
                                 <div class="extra">
                                     <p class="title">Mới nhất</p>
-                                    <p class="content" id="training-assessment"><b>Giỏi</b></p>
+                                    <b class="content" id="training"><b>Giỏi</b></b>
                                 </div>
                             </div>
                         </div>
@@ -156,48 +167,60 @@
                                     <div class="text">
                                         <p class="">Điểm A</p>
                                     </div>
-                                    <p class="value"><b id="quantity-a">21</b> <span
-                                            class="glyphicon glyphicon-exclamation-sign"></span>
+                                    <p class="value">
+                                        <b id="quantity-a">21</b>
+                                        <img class="tit-h-4 tit-cursor-pointer" name="question" src="" alt=""
+                                            data-toggle="tooltip" title="Chi tiết" />
                                     </p>
                                 </div>
                                 <div class="item">
                                     <div class="text">
-                                        <p class="">Điểm B </p>
+                                        <p class="">Điểm B</p>
                                     </div>
-                                    <p class="value"><b id="quantity-b">21</b> <span
-                                            class="glyphicon glyphicon-question-sign"></span>
+                                    <p class="value">
+                                        <b id="quantity-b">21</b>
+                                        <img class="tit-h-4 tit-cursor-pointer" name="question" src="" alt=""
+                                            data-toggle="tooltip" title="Chi tiết" />
                                     </p>
                                 </div>
                                 <div class="item">
                                     <div class="text">
                                         <p class="">Điểm C</p>
                                     </div>
-                                    <p class="value"><b id="quantity-c">21</b> <span
-                                            class="glyphicon glyphicon-question-sign"></span>
+                                    <p class="value">
+                                        <b id="quantity-c">21</b>
+                                        <img class="tit-h-4 tit-cursor-pointer" name="question" src="" alt=""
+                                            data-toggle="tooltip" title="Chi tiết" />
                                     </p>
                                 </div>
                                 <div class="item">
                                     <div class="text">
                                         <p class="">Điểm D</p>
                                     </div>
-                                    <p class="value"><b id="quantity-d">21</b> <span
-                                            class="glyphicon glyphicon-question-sign"></span>
+                                    <p class="value">
+                                        <b id="quantity-d">21</b>
+                                        <img class="tit-h-4 tit-cursor-pointer" name="question" src="" alt=""
+                                            data-toggle="tooltip" title="Chi tiết" />
                                     </p>
                                 </div>
                                 <div class="item">
                                     <div class="text">
                                         <p class="">Điểm F</p>
                                     </div>
-                                    <p class="value"><b id="quantity-f">21</b> <span
-                                            class="glyphicon glyphicon-question-sign"></span>
+                                    <p class="value">
+                                        <b id="quantity-f">21</b>
+                                        <img class="tit-h-4 tit-cursor-pointer" name="question" src="" alt=""
+                                            data-toggle="tooltip" title="Chi tiết" />
                                     </p>
                                 </div>
                                 <div class="item">
                                     <div class="text">
                                         <p><b>Số tín chỉ học lại</b></p>
                                     </div>
-                                    <p class="value"><b id="failed-credits">21</b> / <b id="limit-failed"></b> <span
-                                            class="glyphicon glyphicon-question-sign"></span>
+                                    <p class="value">
+                                        <b id="failed-credits">21</b> / <b id="limit-failed"></b>
+                                        <img class="tit-h-4 tit-cursor-pointer" name="question" src="" alt=""
+                                            data-toggle="tooltip" title="Chi tiết" />
                                     </p>
                                 </div>
                             </div>
@@ -218,30 +241,36 @@
                         title="Caarnt hận bạn nhé!">
                         <a href="https://luatvietnam.vn/tin-phap-luat/sinh-vien-thi-rot-hoc-lai-khi-nao-bi-ha-bang-230-30511-article.html#newsIndex"
                             target="_blank">
-                            Tại khoản 3 Điều 14 Quy chế đào tạo trình độ đại học ban hành kèm Thông tư số
-                            08/2021/TT-BGDĐT quy định</a>
-                        <br>
-                        Tổng số
-                        tín chỉ của bạn hiện
-                        tại là <b id="total-warning">123 tín chỉ</b> nếu bạn học lại quá <b id="limit-warning"></b> trên
-                        tổng số tín chỉ thì sẽ bị hạ 1
-                        bậc tốt nghiệp ( Xuất Sắc -> Giỏi, Giỏi -> Khá, từ bằng Khá sẽ không bị hạ bậc)
+                            Tại khoản 3 Điều 14 Quy chế đào tạo trình độ đại học ban hành kèm
+                            Thông tư số 08/2021/TT-BGDĐT quy định</a>
+                        <br />
+                        Tổng số tín chỉ của bạn hiện tại là
+                        <b id="total-warning">123 tín chỉ</b> nếu bạn học lại quá
+                        <b id="limit-warning"></b> trên tổng số tín chỉ thì sẽ bị hạ 1 bậc
+                        tốt nghiệp ( Xuất Sắc -> Giỏi, Giỏi -> Khá, từ bằng Khá sẽ không bị
+                        hạ bậc)
                     </p>
                 </div>
                 <div id="menu1" class="tab-pane fade">
                     <h3>Menu 1</h3>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat.</p>
+                    <p>
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat.
+                    </p>
                 </div>
                 <div id="menu2" class="tab-pane fade">
                     <h3>Menu 2</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                        totam rem aperiam.</p>
+                    <p>
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                        accusantium doloremque laudantium, totam rem aperiam.
+                    </p>
                 </div>
                 <div id="menu3" class="tab-pane fade">
                     <h3>Menu 3</h3>
-                    <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                        explicabo.</p>
+                    <p>
+                        Eaque ipsa quae ab illo inventore veritatis et quasi architecto
+                        beatae vitae dicta sunt explicabo.
+                    </p>
                 </div>
             </div>
         </div>

@@ -63,6 +63,10 @@
   display: flex !important;
 }
 
+.tit-card-statistic .container .item .value:hover {
+  color: #883cae !important;
+}
+
 #need-credits {
   color: red !important;
 }

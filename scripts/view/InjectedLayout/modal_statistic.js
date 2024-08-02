@@ -1,12 +1,10 @@
-
-
 const getStudentId = async () => {
-    const studentId = localStorage.getItem('studentId')
-    document.getElementById('student-id').innerHTML = studentId
-}
+    const studentId = localStorage.getItem("studentId");
+    document.getElementById("student-id").innerHTML = studentId;
+};
 
 const getInfoStudent = () => {
-    getStudentId()
+    getStudentId();
     const studentName = document.querySelectorAll(".hitec-information h5")[0]
         .textContent;
     const anotherInfo = [...document.getElementsByTagName("a")]
@@ -19,9 +17,17 @@ const getInfoStudent = () => {
 };
 
 const getCreditsInfo = async (studyResultData) => {
-    //variable
+    let index = -1;
+    let object = {};
+    let result = "";
+    //fetch DOM
     const url = getFullUrl(location.origin, SITE_URL.trainningProgram);
     const doc = await getPageDOM(url);
+    //get DOM value
+    const score4AVG = document.getElementById("score4AVG").textContent.trim()
+    const tableRows = [
+        ...doc.querySelectorAll("tbody")[0].querySelectorAll("tr"),
+    ];
     const trannignProgramInfo = doc.querySelectorAll(
         ".container-fluid .form-horizontal"
     )[0];
@@ -31,33 +37,27 @@ const getCreditsInfo = async (studyResultData) => {
     const minEarnCredits = trannignProgramInfo.children[2].querySelectorAll(
         ".form-control-static"
     )[0].textContent;
+    // Varibale
     const earnedCredits = document.getElementById("earned-creadits").textContent;
-    const tableRows = [
-        ...doc.querySelectorAll("tbody")[0].querySelectorAll("tr"),
-    ];
     const trainingProgramData = [];
+    const beautifulData = [];
     const { completed, failed } = studyResultData;
     const limitFailed = Math.floor((5 * totalCredits) / 100);
     const creditsFailed = failed.reduce(
         (total, item) => total + item.credits * item.count,
         0
     );
-    const beautifulData = [];
-    let index = -1;
-    let object = {};
-    let result = "";
+    const isDecrease = creditsFailed > limitFailed;
     // inside function
     const template = (item) => {
+        const data = `${item.completedRequiredCredits + item.completedOptionCredits}/${item.total}`
         return `<div class="item">
                     <div class="text">
                         ${item.title}
                     </div>
-                    <p class="value"><b>${item.completedRequiredCredits +
-            item.completedOptionCredits
-            }/${item.total
-            }</b> <span class="glyphicon glyphicon-question-sign"></span>
-                    </p>
-                </div>`;
+                    <p class="value"><b>${data}</b> <img class="tit-h-4" name="question" src="${chrome.runtime.getURL(getStaticResource("svg", "question"))}" alt="" />
+                </p>
+            </div>`;
     };
     //logic
     tableRows.forEach((row) => {
@@ -114,18 +114,19 @@ const getCreditsInfo = async (studyResultData) => {
     //render
     document.getElementById("credits-detail").innerHTML = result;
     document.getElementById("limit-failed").innerHTML = limitFailed;
-    document.getElementById('special').classList.add(creditsFailed > limitFailed ? 'special' : '')
-    document.getElementById("is-decrease").innerHTML = creditsFailed > limitFailed ? 'Bị hạ bậc' : 'Không bị hạ bậc';
+    document
+        .getElementById("special")
+        .classList.add(isDecrease ? "special" : "");
+    document.getElementById("is-decrease").innerHTML =
+        isDecrease ? "Bị hạ bậc" : "Không bị hạ bậc";
     document
         .getElementById("is-decrease")
-        .classList.add(
-            creditsFailed > limitFailed ? "text-danger" : ""
-        );
+        .classList.add(isDecrease ? "text-danger" : "");
     document.getElementById("failed-credits").innerHTML = creditsFailed;
     document
         .getElementById("failed-credits")
         .classList.add(
-            creditsFailed > limitFailed ? "text-danger" : "text-success"
+            isDecrease ? "text-danger" : "text-success"
         );
     document.getElementById("total-credits").innerHTML = "/" + minEarnCredits;
     document.getElementById("need-credits").innerHTML =
@@ -136,6 +137,11 @@ const getCreditsInfo = async (studyResultData) => {
     document.getElementById(
         "limit-warning"
     ).innerHTML = `5% (${limitFailed} tín chỉ)`;
+    document.getElementById("grades").innerHTML = getRankType(
+        parseFloat(score4AVG), isDecrease
+    );
+    document.getElementById("grades").classList.add(isDecrease ? 'text-danger' : '')
+    document.getElementById("alert-failed").classList.remove(isDecrease ? 'tit-hidden' : '')
 };
 
 const statisticsScore = async () => {
@@ -143,12 +149,12 @@ const statisticsScore = async () => {
     const doc = await getPageDOM(url);
     const studyInfo = doc.querySelectorAll(".form-control-static");
     const totalCreditsEarned = studyInfo[3].textContent;
-    const grade4AVG = studyInfo[4].textContent;
+    const score4AVG = studyInfo[4].textContent;
     const tableRows = [
         ...doc.querySelectorAll("tbody")[0].querySelectorAll("tr"),
     ];
     let totalScoreGrade10 = 0;
-    const countGrade4AVG = {
+    const countscore4AVG = {
         A: 0,
         B: 0,
         C: 0,
@@ -179,39 +185,21 @@ const statisticsScore = async () => {
             totalScoreGrade10 +=
                 parseFloat(row.children[5].textContent) *
                 parseInt(row.children[2].textContent);
-            countGrade4AVG[`${row.children[6].textContent}`]++;
+            countscore4AVG[`${row.children[6].textContent}`]++;
         });
-    const grade10AVG =
+    const score10AVG =
         Math.round((totalScoreGrade10 / parseInt(totalCreditsEarned)) * 100) / 100;
-    const getRankType = (mark) => {
-        if (mark >= 3.6) {
-            return "Xuất sắc";
-        }
-        if (mark < 3.6 && mark >= 3.2) {
-            return "Giỏi";
-        }
-        if (mark < 3.2 && mark >= 2.5) {
-            return "Khá";
-        }
-        if (mark < 2.5) {
-            return "Trung bình";
-        }
-    };
 
     document.getElementById("earned-creadits").innerHTML = totalCreditsEarned;
-    document.getElementById("grade4AVG").innerHTML = grade4AVG;
-    document.getElementById("grade10AVG").innerHTML = grade10AVG;
-    document.getElementById("quantity-a").innerHTML = countGrade4AVG.A;
-    document.getElementById("quantity-b").innerHTML = countGrade4AVG.B;
-    document.getElementById("quantity-c").innerHTML = countGrade4AVG.C;
-    document.getElementById("quantity-d").innerHTML = countGrade4AVG.D;
-    document.getElementById("quantity-f").innerHTML = countGrade4AVG.F;
-    document.getElementById("academic-ability").innerHTML = getRankType(
-        parseFloat(grade4AVG)
-    );
-    document.getElementById("training-assessment").innerHTML =
-        await traningAssessment();
-    // initChart(countGrade4AVG);
+    document.getElementById("score4AVG").innerHTML = score4AVG;
+    document.getElementById("score10AVG").innerHTML = score10AVG;
+    document.getElementById("quantity-a").innerHTML = countscore4AVG.A;
+    document.getElementById("quantity-b").innerHTML = countscore4AVG.B;
+    document.getElementById("quantity-c").innerHTML = countscore4AVG.C;
+    document.getElementById("quantity-d").innerHTML = countscore4AVG.D;
+    document.getElementById("quantity-f").innerHTML = countscore4AVG.F;
+    document.getElementById("training").innerHTML = await traningAssessment();
+    // initChart(countscore4AVG);
     return studyResultData;
 };
 
@@ -233,6 +221,21 @@ const traningAssessment = async () => {
     if (total < 60 && total >= 50) return "Trung Bình";
     if (total < 50 && total >= 30) return "Yếu";
     if (total < 30) return "Kém";
+};
+
+const getRankType = (mark, isDecrease) => {
+    if (mark >= 3.6) {
+        return isDecrease ? "Giỏi" : "Xuất sắc";
+    }
+    if (mark < 3.6 && mark >= 3.2) {
+        return isDecrease ? "Khá" : "Giỏi";
+    }
+    if (mark < 3.2 && mark >= 2.5) {
+        return "Khá";
+    }
+    if (mark < 2.5) {
+        return "Trung bình";
+    }
 };
 
 const initChart = (dataInput) => {
@@ -269,25 +272,52 @@ const initChart = (dataInput) => {
 };
 
 const initIcon = () => {
-    document.getElementById('icon-student-id').src = chrome.runtime.getURL(getStaticResource('svg', 'id'));
-    document.getElementById('icon-student-name').src = chrome.runtime.getURL(getStaticResource('svg', 'student'));
-    document.getElementById('icon-time-study').src = chrome.runtime.getURL(getStaticResource('svg', 'time-study'));
-    document.getElementById('icon-major').src = chrome.runtime.getURL(getStaticResource('svg', 'major'));
-    document.getElementById('icon-semester').src = chrome.runtime.getURL(getStaticResource('svg', 'semester'));
-    document.getElementById('icon-certificate').src = chrome.runtime.getURL(getStaticResource('svg', 'certificate'));
-}
+    document.getElementById("icon-student-id").src = chrome.runtime.getURL(
+        getStaticResource("svg", "id")
+    );
+    document.getElementById("icon-student-name").src = chrome.runtime.getURL(
+        getStaticResource("svg", "student")
+    );
+    document.getElementById("icon-time-study").src = chrome.runtime.getURL(
+        getStaticResource("svg", "time-study")
+    );
+    document.getElementById("icon-major").src = chrome.runtime.getURL(
+        getStaticResource("svg", "major")
+    );
+    document.getElementById("icon-semester").src = chrome.runtime.getURL(
+        getStaticResource("svg", "semester")
+    );
+    document.getElementById("icon-certificate").src = chrome.runtime.getURL(
+        getStaticResource("svg", "certificate")
+    );
+    document.getElementById("icon-4-AVG").src = chrome.runtime.getURL(
+        getStaticResource("svg", "score")
+    );
+    document.getElementById("icon-10-AVG").src = chrome.runtime.getURL(
+        getStaticResource("svg", "score")
+    );
+    document.getElementById("icon-grades").src = chrome.runtime.getURL(
+        getStaticResource("svg", "grades")
+    );
+    document.getElementById("icon-trainning").src = chrome.runtime.getURL(
+        getStaticResource("svg", "trainning")
+    );
+    document.getElementsByName("question").forEach((item) => {
+        item.src = chrome.runtime.getURL(getStaticResource("svg", "question"));
+    });
+};
 
 const renderModalStatistics = async () => {
     try {
         const response = await fetch(
-            chrome.runtime.getURL(getStaticResource("modal", "new_modal")
-            ))
+            chrome.runtime.getURL(getStaticResource("modal", "new_modal"))
+        );
         const modalHtmlRaw = await response.text();
         document.getElementById("dialogMain").innerHTML += modalHtmlRaw;
-        initIcon()
         getInfoStudent();
         const studyResultData = await statisticsScore();
         getCreditsInfo(studyResultData);
+        initIcon();
     } catch (e) {
         console.log(e);
     }
