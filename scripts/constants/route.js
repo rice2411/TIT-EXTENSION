@@ -9,5 +9,7 @@ const SITE_URL = {
   registeredCourse: '/Studying/RegisteredCourses',
   courses: '/Studying/Courses',
   courseRegistration: `/Studying/CourseRegistration`,
-  trainningProgram: `/TrainingProgram`
+  trainningProgram: `/TrainingProgram`,
+  logout: `/Account/Logout
+`
 };

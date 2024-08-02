@@ -16,7 +16,7 @@ const getPermissionNotification = async () => {
 
 const checkValidPage = () => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        const VALID_URL = [SITE_URL.base.husc, SITE_URL.base.huflis]
+        const VALID_URL = [location.origin, SITE_URL.base.huflis]
         const isValid = VALID_URL.filter((link) =>
             tabs[0].url.includes(link)
         ).length;

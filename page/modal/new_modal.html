@@ -10,11 +10,22 @@
 
             <div class="tab-content tit-mt-5 ">
                 <div id="1" class="tab-pane fade in active">
-                    <div class="tit-flex">
+                    <div class="tit-flex tit-justify-between">
                         <div class="tit-card-info">
                             <div class="body">
                                 <div class="icon">
-                                    <span class="glyphicon glyphicon-user"></span>
+                                    <img class="tit-h-4" id="icon-student-id" src="" alt="">
+                                </div>
+                                <div class="info">
+                                    <div class="title">Mã Sinh Viên</div>
+                                    <div class="content" id="student-id">Tôn Thất Anh Minh</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tit-card-info">
+                            <div class="body">
+                                <div class="icon">
+                                    <img class="tit-h-4" id="icon-student-name" src="" alt="">
                                 </div>
                                 <div class="info">
                                     <div class="title">Họ và tên</div>
@@ -25,29 +36,29 @@
                         <div class="tit-card-info">
                             <div class="body">
                                 <div class="icon">
-                                    <span class="glyphicon glyphicon-book"></span>
+                                    <img class="tit-h-4" id="icon-time-study" src="" alt="">
                                 </div>
                                 <div class="info">
                                     <div class="title">Khóa</div>
-                                    <div class="content" id="student-major">K43</div>
+                                    <div class="content" id="student-time-study">K43</div>
                                 </div>
                             </div>
                         </div>
                         <div class="tit-card-info">
                             <div class="body">
                                 <div class="icon">
-                                    <span class="glyphicon glyphicon-education"></span>
+                                    <img class="tit-h-4" id="icon-major" src="" alt="">
                                 </div>
                                 <div class="info">
                                     <div class="title">Ngành</div>
-                                    <div class="content" id="student-time-study">Kỹ Thuật Phần mềm</div>
+                                    <div class="content" id="student-major">Kỹ Thuật Phần mềm</div>
                                 </div>
                             </div>
                         </div>
                         <div class="tit-card-info">
                             <div class="body">
                                 <div class="icon">
-                                    <span class="glyphicon glyphicon-calendar"></span>
+                                    <img class="tit-h-4" id="icon-semester" src="" alt="">
                                 </div>
                                 <div class="info">
                                     <div class="title">Học Kỳ</div>
@@ -55,20 +66,20 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tit-card-info special">
+                        <div class="tit-card-info" id="special">
                             <div class="body">
                                 <div class="icon">
-                                    <span class="glyphicon glyphicon-exclamation-sign"></span>
+                                    <img class="tit-h-4" id="icon-certificate" src="" alt="">
                                 </div>
                                 <div class="info">
                                     <div class="title">Tình trạng</div>
-                                    <div class="content">Không bị hạ bằng</div>
+                                    <div class="content" id="is-decrease">Không bị hạ bậc</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="tit-flex tit-justify-between tit-mt-5">
-                        <div class="tit-card-info medium">
+                        <div class="tit-card-info medium ">
                             <div class="body">
                                 <div class="icon">
                                     <span class="glyphicon glyphicon-sound-5-1"></span>
@@ -83,7 +94,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tit-card-info medium">
+                        <div class="tit-card-info medium ">
                             <div class="body">
                                 <div class="icon">
                                     <span class="glyphicon glyphicon-sound-6-1"></span>
@@ -98,7 +109,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tit-card-info medium">
+                        <div class="tit-card-info medium ">
                             <div class="body">
                                 <div class="icon">
                                     <span class="glyphicon glyphicon-text-color"></span>
@@ -113,7 +124,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tit-card-info medium">
+                        <div class="tit-card-info medium ">
                             <div class="body">
                                 <div class="icon">
                                     <span class="	glyphicon glyphicon-text-background"></span>
@@ -130,9 +141,9 @@
                         </div>
                     </div>
                     <div class="tit-flex tit-justify-between tit-mt-5">
-                        <div class="tit-card-statistic">
+                        <div class="tit-card-statistic tit-ml-0">
                             <div class="container">
-                                <p class="title">Chặng đường đã qua</p>
+                                <p class="title">Tổng số tín chỉ hiện tại</p>
                                 <div class="header">
                                     <p>Đã tích lũy</p>
                                     <div class="tit-flex tit-items-center">
@@ -143,17 +154,15 @@
                                 <div class="hr"></div>
                                 <div class="item">
                                     <div class="text">
-                                        <span class="glyphicon glyphicon-list-alt"></span>
-                                        <p class="tit-ml-2">Điểm A</p>
+                                        <p class="">Điểm A</p>
                                     </div>
                                     <p class="value"><b id="quantity-a">21</b> <span
-                                            class="glyphicon glyphicon-question-sign"></span>
+                                            class="glyphicon glyphicon-exclamation-sign"></span>
                                     </p>
                                 </div>
                                 <div class="item">
                                     <div class="text">
-                                        <span class="glyphicon glyphicon-list-alt"></span>
-                                        <p class="tit-ml-2">Điểm B </p>
+                                        <p class="">Điểm B </p>
                                     </div>
                                     <p class="value"><b id="quantity-b">21</b> <span
                                             class="glyphicon glyphicon-question-sign"></span>
@@ -161,8 +170,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="text">
-                                        <span class="glyphicon glyphicon-list-alt"></span>
-                                        <p class="tit-ml-2">Điểm C</p>
+                                        <p class="">Điểm C</p>
                                     </div>
                                     <p class="value"><b id="quantity-c">21</b> <span
                                             class="glyphicon glyphicon-question-sign"></span>
@@ -170,8 +178,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="text">
-                                        <span class="glyphicon glyphicon-list-alt"></span>
-                                        <p class="tit-ml-2">Điểm D</p>
+                                        <p class="">Điểm D</p>
                                     </div>
                                     <p class="value"><b id="quantity-d">21</b> <span
                                             class="glyphicon glyphicon-question-sign"></span>
@@ -179,69 +186,47 @@
                                 </div>
                                 <div class="item">
                                     <div class="text">
-                                        <span class="glyphicon glyphicon-list-alt"></span>
-                                        <p class="tit-ml-2">Điểm F</p>
+                                        <p class="">Điểm F</p>
                                     </div>
                                     <p class="value"><b id="quantity-f">21</b> <span
                                             class="glyphicon glyphicon-question-sign"></span>
                                     </p>
                                 </div>
+                                <div class="item">
+                                    <div class="text">
+                                        <p><b>Số tín chỉ học lại</b></p>
+                                    </div>
+                                    <p class="value"><b id="failed-credits">21</b> / <b id="limit-failed"></b> <span
+                                            class="glyphicon glyphicon-question-sign"></span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                        <div class="tit-card-statistic">
+                        <div class="tit-card-statistic tit-mr-0">
                             <div class="container">
-                                <p class="title">Hành trình sắp tới</p>
+                                <p class="title">Số tín chỉ cần tích lũy</p>
                                 <div class="header">
                                     <p>Cần tích tích lũy</p>
                                     <p class="total" id="need-credits">123</p>
                                 </div>
                                 <div class="hr"></div>
-                                <div class="item">
-                                    <div class="text">
-                                        <span class="glyphicon glyphicon-list-alt"></span>
-                                        <p class="tit-ml-2">Điểm A</p>
-                                    </div>
-                                    <p class="value"><b>21</b> <span class="glyphicon glyphicon-question-sign"></span>
-                                    </p>
-                                </div>
-                                <div class="item">
-                                    <div class="text">
-                                        <span class="glyphicon glyphicon-list-alt"></span>
-                                        <p class="tit-ml-2">Điểm A </p>
-                                    </div>
-                                    <p class="value"><b>21</b> <span class="glyphicon glyphicon-question-sign"></span>
-                                    </p>
-                                </div>
-                                <div class="item">
-                                    <div class="text">
-                                        <span class="glyphicon glyphicon-list-alt"></span>
-                                        <p class="tit-ml-2">Điểm A</p>
-                                    </div>
-                                    <p class="value"><b>21</b> <span class="glyphicon glyphicon-question-sign"></span>
-                                    </p>
-                                </div>
-                                <div class="item">
-                                    <div class="text">
-                                        <span class="glyphicon glyphicon-list-alt"></span>
-                                        <p class="tit-ml-2">Điểm A</p>
-                                    </div>
-                                    <p class="value"><b>21</b> <span class="glyphicon glyphicon-question-sign"></span>
-                                    </p>
-                                </div>
-                                <div class="item">
-                                    <div class="text">
-                                        <span class="glyphicon glyphicon-list-alt"></span>
-                                        <p class="tit-ml-2">Điểm A</p>
-                                    </div>
-                                    <p class="value"><b>21</b> <span class="glyphicon glyphicon-question-sign"></span>
-                                    </p>
-                                </div>
+                                <div id="credits-detail"></div>
                             </div>
                         </div>
                     </div>
-                    <p class="alert alert-warning tit-mt-5" data-toggle="tooltip" title="Caarnt hận bạn nhé!">Nếu bạn
-                        rớt quá <b>5%</b> ( học lại ) tổng số tín chỉ thì bằng tốt nghiệp của các bạn sẽ bị hạ 1 bậc,
-                        Xuất Sắc -> Giỏi, Giỏi -> Khá, từ Khá sẽ không bị hạ</p>
+                    <p class="alert alert-warning tit-mt-5 tit-cursor-pointer" id="warning" data-toggle="tooltip"
+                        title="Caarnt hận bạn nhé!">
+                        <a href="https://luatvietnam.vn/tin-phap-luat/sinh-vien-thi-rot-hoc-lai-khi-nao-bi-ha-bang-230-30511-article.html#newsIndex"
+                            target="_blank">
+                            Tại khoản 3 Điều 14 Quy chế đào tạo trình độ đại học ban hành kèm Thông tư số
+                            08/2021/TT-BGDĐT quy định</a>
+                        <br>
+                        Tổng số
+                        tín chỉ của bạn hiện
+                        tại là <b id="total-warning">123 tín chỉ</b> nếu bạn học lại quá <b id="limit-warning"></b> trên
+                        tổng số tín chỉ thì sẽ bị hạ 1
+                        bậc tốt nghiệp ( Xuất Sắc -> Giỏi, Giỏi -> Khá, từ bằng Khá sẽ không bị hạ bậc)
+                    </p>
                 </div>
                 <div id="menu1" class="tab-pane fade">
                     <h3>Menu 1</h3>
@@ -260,8 +245,5 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
-        </div> -->
     </div>
 </div>

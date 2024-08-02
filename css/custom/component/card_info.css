@@ -1,11 +1,10 @@
 .tit-card-info {
   background: #fff !important;
-  width: 250px !important;
+  width: 200px !important;
   height: 70px !important;
   padding: 14px !important;
   display: flex !important;
   align-items: center !important;
-  margin: 0 10px;
   border-radius: 5px;
 }
 
@@ -14,6 +13,7 @@
   font-size: 12px !important;
   display: flex !important;
   width: 100% !important;
+  align-items: center;
 }
 
 .tit-card-info .body .icon {
@@ -44,8 +44,7 @@
 }
 
 .tit-card-info.medium {
-  width: 300px !important;
-  padding-left: 0px !important;
+  width: 312px !important;
 }
 
 .tit-card-info.medium .body .info {
@@ -73,5 +72,5 @@
 }
 
 .tit-card-info.special {
-  border: 1px solid #883cae;
+  border: 2px solid red;
 }

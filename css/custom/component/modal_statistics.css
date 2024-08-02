@@ -6,7 +6,7 @@ body {
 
 #modalStatisics .modal-content {
   background: #efefef;
-  height: 630px;
+  height: max-content;
   width: max-content;
   right: 25%;
 }

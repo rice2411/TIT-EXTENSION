@@ -26,3 +26,12 @@ const getTimeOfCourse = (str) => {
 
   return mainPart;
 }
+
+const getStaticResource = (ext, name) => {
+  switch (ext) {
+    case 'svg':
+      return `images/svg/${name}.svg`
+    case 'modal':
+      return `page/modal/${name}.html`
+  }
+}

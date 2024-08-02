@@ -76,7 +76,7 @@ const handleAlertNewMessage = async () => {
 
 
 window.addEventListener('load', async () => {
-    if (!location.href.includes(getFullUrl(SITE_URL.base.husc, SITE_URL.courseRegistration))) {
+    if (!location.href.includes(getFullUrl(location.origin, SITE_URL.courseRegistration))) {
         const isFirstTimeCache = sessionStorage.getItem('isFirstTime')
         const isFirstTime = isFirstTimeCache === null ? 1 : +isFirstTimeCache
         if (isFirstTime) {
