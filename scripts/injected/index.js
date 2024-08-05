@@ -7,7 +7,11 @@ const onRenderInjectedLayout = () => {
     </p>
     <p class="tit-flex">
         <img src="${chrome.runtime.getURL(getStaticResource("png", "export"))}"  alt="">
-        <a href="#" class="tit-button">Xuát bản điểm</a>
+        <a href="#" class="tit-button">Xuất bản điểm</a>
+    </p>
+    <p class="tit-flex">
+        <img src="${chrome.runtime.getURL(getStaticResource("png", "documentation"))}"  alt="">
+        <a href="#" class="tit-button" data-toggle="modal" data-target="#dialogMain">Tổng hợp các mẫu đơn</a>
     </p>
     <p class="tit-flex">
         <img src="${chrome.runtime.getURL(getStaticResource("png", "maintanace"))}"  alt="">
@@ -25,10 +29,13 @@ const onRenderInjectedLayout = () => {
 window.addEventListener("load", async () => {
     await onRenderInjectedLayout();
     document.querySelectorAll(".tit-button")[0].addEventListener("click", async () => {
-        await onRenderModalStatistics();
+        await onRenderStatisticsModal();
     });
-    document.querySelectorAll(".tit-button")[1].addEventListener("click", () => {
-        new ExportData().excelExport()
+    document.querySelectorAll(".tit-button")[1].addEventListener("click", async () => {
+        await new ExportData().excelExport()
+    });
+    document.querySelectorAll(".tit-button")[2].addEventListener("click", async () => {
+        await onRenderDocumentationModal()
     });
 
 });
