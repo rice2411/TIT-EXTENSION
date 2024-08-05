@@ -31,6 +31,8 @@ const getStaticResource = (ext, name) => {
   switch (ext) {
     case 'svg':
       return `images/svg/${name}.svg`
+    case 'png':
+      return `images/png/${name}.png`
     case 'modal':
       return `page/modal/${name}.html`
   }

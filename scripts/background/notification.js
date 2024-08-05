@@ -73,18 +73,25 @@ const handleAlertNewMessage = async () => {
     }, 1000)
 }
 
-
+const getPermissionNotification = async () => {
+    const clientPermission = localStorage.getItem('isCanNoti')
+    const { newPermission } = await chrome.storage.sync.get('newPermission')
+    if (!clientPermission) {
+        chrome.storage.sync.set({ 'isCanNoti': 1 });
+        localStorage.setItem('isCanNoti', 1)
+    } else {
+        chrome.storage.sync.set({ 'isCanNoti': newPermission ?? +clientPermission });
+    }
+}
 
 window.addEventListener('load', async () => {
-    if (!location.href.includes(getFullUrl(location.origin, SITE_URL.courseRegistration))) {
-        const isFirstTimeCache = sessionStorage.getItem('isFirstTime')
-        const isFirstTime = isFirstTimeCache === null ? 1 : +isFirstTimeCache
-        if (isFirstTime) {
-            await handleCheckSameListMess()
-        }
-        handleAlertNewMessage();
+    await getPermissionNotification()
+    const isFirstTimeCache = sessionStorage.getItem('isFirstTime')
+    const isFirstTime = isFirstTimeCache === null ? 1 : +isFirstTimeCache
+    if (isFirstTime) {
+        await handleCheckSameListMess()
     }
-
+    handleAlertNewMessage();
 });
 
 
