@@ -30,6 +30,7 @@
         "css/custom/component/modal_statistics.css",
         "css/custom/component/card_info.css",
         "css/custom/component/card_statistic.css",
+        "css/custom/component/card_documentation.css",
         "css/custom/TIT/cursor.css",
         "css/custom/TIT/flexbox.css",
         "css/custom/TIT/margin.css",
@@ -54,6 +55,8 @@
         "scripts/injected/Modal/Statistics/Tabs/Credits/index.js",
         "scripts/injected/Modal/DetailCourse/index.js",
         "scripts/injected/Modal/DetailCourse/detail.js",
+        "scripts/injected/Modal/Documentation/index.js",
+        "scripts/injected/Modal/Documentation/documentation.js",
         "scripts/injected/Export/index.js",
         "scripts/injected/CourseRegistration/index.js"
       ]
@@ -63,6 +66,7 @@
     {
       "resources": [
         "view/Modal/DetailCourse/index.html",
+        "view/Modal/Documentation/index.html",
         "view/Modal/Statistics/Tabs/credits.html",
         "view/Modal/Statistics/index.html",
         "images/svg/id.svg",
@@ -77,6 +81,9 @@
         "images/png/statistics.png",
         "images/png/export.png",
         "images/png/maintanace.png",
+        "images/png/documentation.png",
+        "images/png/word.png",
+        "images/png/pdf.png",
         "images/svg/time-study.svg"
       ],
       "matches": ["https://*/*"]
