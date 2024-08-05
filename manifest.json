@@ -10,7 +10,7 @@
     "32": "images/TIT-LOGO.png"
   },
   "background": {
-    "service_worker": "background/index.js"
+    "service_worker": "scripts/background/index.js"
   },
   "minimum_chrome_version": "92",
   "action": {
@@ -39,29 +39,32 @@
         "css/custom/TIT/height.css"
       ],
       "js": [
-        "background/notification.js",
-        "background/get_student_id.js",
+        "scripts/background/notification.js",
+        "scripts/background/get_student_id.js",
         "scripts/lib/xlsx.full.min.js",
         "scripts/lib/chart.js",
         "scripts/constants/route.js",
         "scripts/utils/route.js",
         "scripts/utils/DOM.js",
         "scripts/utils/string.js",
-        "scripts/view/InjectedLayout/index.js",
-        "scripts/view/InjectedLayout/welcome.js",
-        "scripts/view/InjectedLayout/modal_statistic.js",
-        "scripts/view/InjectedLayout/export_excel.js",
-        "scripts/view/CourseRegistration/index.js",
-        "scripts/view/HistoryOfStudying/index.js"
+        "scripts/injected/index.js",
+        "scripts/injected/Welcome/index.js",
+        "scripts/injected/Modal/Statistics/index.js",
+        "scripts/injected/Modal/Statistics/Tabs/Credits/credits.js",
+        "scripts/injected/Modal/Statistics/Tabs/Credits/index.js",
+        "scripts/injected/Modal/DetailCourse/index.js",
+        "scripts/injected/Modal/DetailCourse/detail.js",
+        "scripts/injected/Export/index.js",
+        "scripts/injected/CourseRegistration/index.js"
       ]
     }
   ],
   "web_accessible_resources": [
     {
       "resources": [
-        "page/modal/course.html",
-        "page/modal/statistics.html",
-        "page/modal/new_modal.html",
+        "view/Modal/DetailCourse/index.html",
+        "view/Modal/Statistics/Tabs/credits.html",
+        "view/Modal/Statistics/index.html",
         "images/svg/id.svg",
         "images/svg/student.svg",
         "images/svg/major.svg",
@@ -71,6 +74,9 @@
         "images/svg/grades.svg",
         "images/svg/trainning.svg",
         "images/svg/question.svg",
+        "images/png/statistics.png",
+        "images/png/export.png",
+        "images/png/maintanace.png",
         "images/svg/time-study.svg"
       ],
       "matches": ["https://*/*"]

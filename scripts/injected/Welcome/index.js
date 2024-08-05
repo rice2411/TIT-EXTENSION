@@ -1,5 +1,5 @@
 
-const displayCourseWarningComponent = () => {
+const onRenderWelcomeMessage = () => {
     const welcomeOption = {
         type: 'p',
         classList: `alert alert-success`,
@@ -20,20 +20,7 @@ const displayCourseWarningComponent = () => {
     location.parentNode.insertBefore(welcomeDOM, location)
 }
 
-const gettPermissionNotification = async () => {
-    const clientPermission = localStorage.getItem('isCanNoti')
-    const { newPermission } = await chrome.storage.sync.get('newPermission')
-    if (!clientPermission) {
-        chrome.storage.sync.set({ 'isCanNoti': 1 });
-        localStorage.setItem('isCanNoti', 1)
-    } else {
-        chrome.storage.sync.set({ 'isCanNoti': newPermission ?? +clientPermission });
-    }
-}
 
 window.addEventListener('load', () => {
-    displayCourseWarningComponent()
-    gettPermissionNotification()
+    onRenderWelcomeMessage()
 });
-
-

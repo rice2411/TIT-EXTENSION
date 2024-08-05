@@ -4,7 +4,7 @@ body {
   font-weight: 300;
 }
 
-#modalStatisics .modal-content {
+#statistics-modal .modal-content {
   background: #efefef;
   height: max-content;
   width: max-content;

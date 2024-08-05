@@ -8,7 +8,7 @@ const analysisCourse = (listTime) => {
                 const isDuplicate = checkDuplicateTime(listTime, timeOfCourse, row);
                 if (isDuplicate) {
                     row.children[6].addEventListener("click", () => {
-                        const statisticsModal = document.getElementById('modalStatisics')
+                        const statisticsModal = document.getElementById('statistics-modal')
                         if (statisticsModal) statisticsModal.remove()
                         const modal = document.querySelectorAll(".modal-content")[0];
                         const alert = `<div class="alert alert-danger" data-toggle="tooltip" title="Hooray!"> <b> Cảnh báo !</b> Học phần này đang bị trùng lịch với học phần bạn đã đăng kí hãy xác nhận nếu bạn vẫn muốn đăng kí </div>
