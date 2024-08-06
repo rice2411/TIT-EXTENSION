@@ -10,6 +10,6 @@ const SITE_URL = {
   courses: '/Studying/Courses',
   courseRegistration: `/Studying/CourseRegistration`,
   trainningProgram: `/TrainingProgram`,
-  logout: `/Account/Logout
-`
+  logout: `/Account/Logout`,
+  tuitionHistory: `/Tuition/History`
 };

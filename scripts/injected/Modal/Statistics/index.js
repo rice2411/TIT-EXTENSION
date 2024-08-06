@@ -6,6 +6,7 @@ const onRenderStatisticsModal = async () => {
         const htmlRaw = await htmlResponse.text();
         document.getElementById("dialogMain").innerHTML += htmlRaw;
         await onRenderCredtisStatisticsTab()
+        await onRenderChartCreditsTab();
     } catch (e) {
         console.log(e);
     }

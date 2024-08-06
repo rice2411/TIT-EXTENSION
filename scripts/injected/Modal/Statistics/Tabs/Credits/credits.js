@@ -159,31 +159,46 @@ class CreditsStatistics {
             D: 0,
             F: 0,
         };
+        const countscore10AVG = []
         const studyResultData = {
             completed: [],
             failed: [],
         };
+        let index = -1;
         tableRows
-            .filter((row) => row.children.length === 8)
             .forEach((row) => {
-                if (
-                    row.children[6].textContent.trim() !== "F" &&
-                    parseInt(row.children[3].textContent.trim() === 1)
-                ) {
-                    studyResultData.completed.push(row.children[0].textContent.trim());
+                if (row.children.length === 8) {
+                    if (
+                        row.children[6].textContent.trim() !== "F" &&
+                        parseInt(row.children[3].textContent.trim() === 1)
+                    ) {
+                        studyResultData.completed.push(row.children[0].textContent.trim());
+                    }
+                    if (parseInt(row.children[3].textContent.trim()) > 1) {
+                        const faildedCourse = {
+                            id: row.children[0].textContent.trim(),
+                            credits: parseInt(row.children[2].textContent.trim()),
+                            count: parseInt(row.children[3].textContent.trim()),
+                        };
+                        studyResultData.failed.push(faildedCourse);
+                    }
+                    const score = parseFloat(row.children[5].textContent) * parseInt(row.children[2].textContent);
+                    totalScoreGrade10 += score
+
+                    countscore10AVG[index].value += score;
+                    countscore4AVG[`${row.children[6].textContent}`]++;
+                } else {
+                    const str = row.children[0].textContent
+                    const totalCredits = parseInt(row.children[1].querySelectorAll('b')[0].textContent.trim())
+                    const yearMatch = str.match(/Năm học: (\d{4}-\d{4})/);
+                    const year = yearMatch ? yearMatch[1] : '';
+
+                    // Extract the semester part
+                    const semesterMatch = str.match(/Học kỳ: (\d)/);
+                    const semester = semesterMatch ? semesterMatch[1] : '';
+                    countscore10AVG.push({ id: `${year}.${semester}`, value: 0, totalCredits })
+                    index++;
                 }
-                if (parseInt(row.children[3].textContent.trim()) > 1) {
-                    const faildedCourse = {
-                        id: row.children[0].textContent.trim(),
-                        credits: parseInt(row.children[2].textContent.trim()),
-                        count: parseInt(row.children[3].textContent.trim()),
-                    };
-                    studyResultData.failed.push(faildedCourse);
-                }
-                totalScoreGrade10 +=
-                    parseFloat(row.children[5].textContent) *
-                    parseInt(row.children[2].textContent);
-                countscore4AVG[`${row.children[6].textContent}`]++;
             });
         const score10AVG =
             Math.round((totalScoreGrade10 / parseInt(totalCreditsEarned)) * 100) / 100;
@@ -197,7 +212,8 @@ class CreditsStatistics {
         document.getElementById("quantity-d").innerHTML = countscore4AVG.D;
         document.getElementById("quantity-f").innerHTML = countscore4AVG.F;
         document.getElementById("training").innerHTML = await this.utils().getTranningResultType();
-        // initChart(countscore4AVG);
+        localStorage.setItem('countscore4AVG', JSON.stringify(countscore4AVG))
+        localStorage.setItem('countscore10AVG', JSON.stringify(countscore10AVG))
         return studyResultData;
     };
     async drawIcon() {

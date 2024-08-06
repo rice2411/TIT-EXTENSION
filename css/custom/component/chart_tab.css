@@ -1,0 +1,24 @@
+#chart-tab .list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+#chart-tab .item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+#bar-chart {
+  min-width: 650px;
+}
+
+#pie-chart {
+  min-width: 400px;
+}
+
+#doughnut-chart {
+  min-width: 400px;
+}
