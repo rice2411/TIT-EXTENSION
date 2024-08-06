@@ -11,14 +11,7 @@
   padding: 30px;
 }
 
-#bar-chart {
+#chart {
   min-width: 650px;
 }
 
-#pie-chart {
-  min-width: 400px;
-}
-
-#doughnut-chart {
-  min-width: 400px;
-}

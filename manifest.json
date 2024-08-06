@@ -26,7 +26,6 @@
         "https://student.huflis.edu.vn/*"
       ],
       "css": [
-        "css/lib/fa.css",
         "css/custom/component/modal_statistics.css",
         "css/custom/component/card_info.css",
         "css/custom/component/card_statistic.css",
