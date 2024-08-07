@@ -1,0 +1,27 @@
+<div id="chart-tab" class="tab-pane fade">
+    <div class="select">
+        <p>Chọn loại biểu đồ:</p>
+        <select class="form-control" id="chart-type">
+            <option value="" selected disabled hidden>Hãy chọn loại biểu đồ</option>
+            <optgroup label="Tín chỉ">
+                <option value="avg-4">Thống kê tích lũy tín chỉ ( hệ 4 )</option>
+                <option value="avg-10">
+                    Thống kê điểm trung bình theo học kỳ ( hệ 10 )
+                </option>
+            </optgroup>
+            <optgroup label="Học phí">
+                <option value="tuition">Từng học kỳ</option>
+                <option value="avg-credits">Trung bình tín chỉ / học kỳ</option>
+            </optgroup>
+        </select>
+    </div>
+
+    <div class="list">
+        <div class="tit-flex">
+            <div class="item">
+                <p id="404-text">Chưa có dữ liệu</p>
+                <canvas id="chart" hidden> </canvas>
+            </div>
+        </div>
+    </div>
+</div>
