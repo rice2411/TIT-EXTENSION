@@ -1,18 +1,4 @@
-const getTuitionData = async () => {
-  const url = getFullUrl(location.origin, SITE_URL.tuitionHistory);
-  const doc = await getPageDOM(url);
-  const tableRows = [...doc.querySelectorAll("tbody tr")];
-  return tableRows.map((row) => {
-    return {
-      label: row.querySelectorAll("td")[3].textContent.trim(),
-      value: parseInt(
-        row.querySelectorAll("td")[6].textContent.trim().replace(/,/g, "")
-      ),
-    };
-  });
-}
-
-async function processTuitionData() {
+const processTuitionData = async () => {
   const dataInput = await getTuitionData();
   const result = [];
 
@@ -25,6 +11,20 @@ async function processTuitionData() {
   });
 
   return result;
+}
+
+const getTuitionData = async () => {
+  const url = getFullUrl(location.origin, SITE_URL.tuitionHistory);
+  const doc = await getPageDOM(url);
+  const tableRows = [...doc.querySelectorAll("tbody tr")];
+  return tableRows.map((row) => {
+    return {
+      label: row.querySelectorAll("td")[3].textContent.trim(),
+      value: parseInt(
+        row.querySelectorAll("td")[6].textContent.trim().replace(/,/g, "")
+      ),
+    };
+  });
 }
 
 const onSelectedChartType = () => {
@@ -84,12 +84,29 @@ const onSelectedChartType = () => {
         }
         chart.drawBarChart(options);
         return;
+
       case "tuition":
-      case "avg-credits":
+        dataInput = await getTuitionData();
+        options = {
+          title: 'Học phí từng học kì',
+          data: {
+            datasets: [
+              {
+                label: "VND",
+                data: dataInput.map((item) => item.value),
+                backgroundColor: ["#69d100"],
+              },
+            ],
+            labels: dataInput.map((item) => item.label),
+          }
+        }
+        chart.drawBarChart(options);
+        return;
+      case 'avg-credits':
         const semester = JSON.parse(localStorage.getItem("countscore10AVG"))
         dataInput = await processTuitionData()
         options = {
-          title: 'Trung bình tín chỉ',
+          title: 'Trùng bình học phí tín chỉ',
           data: {
             datasets: [
               {

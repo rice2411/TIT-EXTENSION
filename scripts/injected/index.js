@@ -3,7 +3,7 @@ const onRenderInjectedLayout = () => {
     <h5>TIT EXTENSION</h5>
     <p class="tit-flex">
         <img src="${chrome.runtime.getURL(getStaticResource("png", "statistics"))}"  alt="">
-        <a href="#" class="tit-button" data-toggle="modal" data-target="#dialogMain">Thống kê tín chỉ</a>
+        <a href="#" class="tit-button" data-toggle="modal" data-target="#dialogMain">Thống kê </a>
     </p>
     <p class="tit-flex">
         <img src="${chrome.runtime.getURL(getStaticResource("png", "export"))}"  alt="">

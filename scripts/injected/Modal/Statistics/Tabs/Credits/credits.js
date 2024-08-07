@@ -129,7 +129,7 @@ class CreditsStatistics {
             );
         document.getElementById("total-credits").innerHTML = "/" + minEarnCredits;
         document.getElementById("need-credits").innerHTML =
-            parseInt(minEarnCredits) - parseInt(earnedCredits);
+            Math.max(parseInt(minEarnCredits) - parseInt(earnedCredits), 0);
         document.getElementById(
             "total-warning"
         ).innerHTML = `${totalCredits} tín chỉ`;
