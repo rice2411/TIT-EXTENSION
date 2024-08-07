@@ -1,34 +1,12 @@
 class ChartCredits {
   chart = new Chart();
-  drawPieChart(dataInput) {
+  drawPieChart(options) {
     const ctx = document.getElementById("chart");
     ctx.getContext("2d").clearRect(0, 0, ctx.width, ctx.height);
     this.chart.destroy();
-    const data = {
-      datasets: [
-        {
-          label: "TÍch lũy",
-          data: [
-            dataInput.A,
-            dataInput.B,
-            dataInput.C,
-            dataInput.D,
-            dataInput.F,
-          ],
-          backgroundColor: [
-            "#62B58A",
-            "#ffc534",
-            "#29c3be",
-            "#5d62b5",
-            "#f2726f",
-          ],
-        },
-      ],
-      labels: ["Điểm A", "Điểm B", "Điểm C", "Điểm D", "Điểm F"],
-    };
     const config = {
       type: "pie",
-      data: data,
+      data: options.data,
       options: {
         responsive: true,
         plugins: {
@@ -37,7 +15,7 @@ class ChartCredits {
           },
           title: {
             display: true,
-            text: "Biểu đồ thống kê số tín chỉ tích lũy",
+            text: options.title,
             font: {
               size: 20, // Change this value to set the title size
               weight: "bold", // Optional: set font weight
@@ -48,25 +26,13 @@ class ChartCredits {
     };
     this.chart = new Chart(ctx, config);
   }
-  drawBarChart(dataInput) {
+  drawBarChart(options) {
     const ctx = document.getElementById("chart");
     ctx.getContext("2d").clearRect(0, 0, ctx.width, ctx.height);
     this.chart.destroy();
-    const data = {
-      datasets: [
-        {
-          label: "Điểm tủng bình học kì",
-          data: dataInput.map(
-            (item) => Math.round((item.value / item.totalCredits) * 100) / 100
-          ),
-          backgroundColor: ["#883cae"],
-        },
-      ],
-      labels: dataInput.map((item) => item.id),
-    };
     const config = {
       type: "bar",
-      data: data,
+      data: options.data,
       options: {
         responsive: true,
         plugins: {
@@ -75,7 +41,7 @@ class ChartCredits {
           },
           title: {
             display: true,
-            text: "ĐIỂM TRUNG BÌNH HỌC KÌ",
+            text: options.title,
             font: {
               size: 24, // Change this value to set the title size
               weight: "bold", // Optional: set font weight
